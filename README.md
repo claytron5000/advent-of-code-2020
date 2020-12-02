@@ -1,3 +1,3 @@
 # advent-of-code
 
-A description of this package.
+Learning some Swift with the [Advent of Code](https://adventofcode.com).
