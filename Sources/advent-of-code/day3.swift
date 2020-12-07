@@ -16,15 +16,32 @@ if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMa
             grid.append(stringToArray(string: line))
         }    
         var treeCount: Int = 0
-        for index in 0...grid.count-1 {
-            let position = index * 3
-            let rowIndex = position % lineLength
-            if grid[index][rowIndex] == "#" {
-                treeCount = treeCount + 1
+        print("Enter run:")
+        if let slope = readLine() {
+            if let num = Int(slope) {
+                print("Enter rise:")
+                if let rise = readLine() {
+                    if let num2 = Int(rise) {
+                        for index in 0...grid.count-1 {
+                            if index % num2 != 0 {
+                                continue
+                            }
+                            let position = index * Int(num)
+                            let rowIndex = position % lineLength
+                            if grid[index][rowIndex] == "#" {
+                                treeCount = treeCount + 1
+                            }
+                        }
+                        print(treeCount)
+                    }
+                }
+
             }
-            // print(grid[index][rowIndex])
+        } else {
+            print("Why are you being so coy?")
         }
-        print(treeCount)
+
+
     }
     catch {
         print("error: ", error)
